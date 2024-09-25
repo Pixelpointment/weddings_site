@@ -1,0 +1,22 @@
+<h1>Welcome to {{ wedding_site.title }}</h1>
+<p>{{ wedding_site.description }}</p>
+
+<h2>Photos</h2>
+<div class="photo-gallery">
+    {% for photo in photos %}
+        <img src="{{ photo.image.url }}" alt="{{ photo.description }}">
+    {% endfor %}
+</div>
+
+<h2>Guest Photos</h2>
+<div class="guest-photos">
+    {% for guest_photo in guest_photos %}
+        <img src="{{ guest_photo.photo.url }}" alt="Guest Photo">
+        {% if guest_photo.message %}
+            <p>{{ guest_photo.message }}</p>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<a href="{% url 'guest_photo_upload' unique_name=wedding_site.unique_name %}">Upload a photo</a>
+<a href="{% url 'wedding_faq' unique_name=wedding_site.unique_name %}">FAQs</a>

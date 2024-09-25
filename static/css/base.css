@@ -1,0 +1,318 @@
+body {
+  margin: 0;
+  font-family: "Georgia", serif;
+  background-color: var(--primary-color);
+  color: #333;
+}
+
+header {
+  background-color: #1f3c88;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+header .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .navbar h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+header .navbar nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+header .navbar nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  transition: color 0.3s;
+}
+header .navbar nav ul li a:hover {
+  color: #a2b9d6;
+}
+
+.hero {
+  height: 90vh;
+  position: relative;
+}
+.hero .hero-content {
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 50px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+}
+.hero .hero-content h2 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: #a2b9d6;
+}
+.hero .hero-content p {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: white;
+}
+.hero .hero-content .btn {
+  background-color: #1f3c88;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.hero .hero-content .btn:hover {
+  background-color: red;
+}
+.hero .hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.hero .hero-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+section h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #1f3c88;
+}
+section p, section ul {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: #333;
+}
+section ul {
+  list-style: none;
+  padding: 0;
+}
+section ul li {
+  margin: 10px 0;
+}
+
+.rsvp .btn {
+  background-color: #1f3c88;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+.rsvp .btn:hover {
+  background-color: red;
+}
+
+footer {
+  background-color: #1f3c88;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.reception {
+  background-color: var(--primary-color);
+  padding: 60px 20px;
+  text-align: center;
+}
+.reception h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #1f3c88;
+}
+.reception p {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+  color: #333;
+}
+.reception h3 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #1f3c88;
+}
+.reception .menu-section {
+  margin-bottom: 40px;
+}
+.reception .menu-section h4 {
+  font-size: 1em;
+  margin-bottom: 10px;
+  color: #1f3c88;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #a2b9d6;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+.reception .menu-section ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1.2em;
+  color: #333;
+  line-height: 1.8em;
+}
+.reception .menu-section ul li {
+  margin: 10px 0;
+  padding: 10px;
+  border-bottom: 1px solid #a2b9d6;
+  transition: background-color 0.3s;
+}
+.reception .menu-section ul li:last-child {
+  border-bottom: none;
+}
+.reception .menu-section ul li:hover {
+  background-color: white;
+}
+
+.faq {
+  background-color: var(--primary-color);
+  padding: 40px 15px;
+  text-align: center;
+}
+.faq h2 {
+  font-size: 2em;
+  margin-bottom: 30px;
+  color: #1f3c88;
+}
+.faq .faq-items {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+}
+.faq .faq-items .faq-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+.faq .faq-items .faq-item:hover {
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+}
+.faq .faq-items .faq-item .faq-question {
+  font-size: 1.3em;
+  color: #1f3c88;
+  margin-bottom: 8px;
+}
+.faq .faq-items .faq-item .faq-answer {
+  font-size: 1.1em;
+  color: #333;
+  line-height: 1.4em;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 15px;
+  }
+  header .navbar {
+    flex-direction: row;
+    align-items: center;
+    display: inline-table;
+  }
+  header .navbar nav ul {
+    flex-direction: row;
+    gap: 10px;
+  }
+  header .navbar nav ul li a {
+    font-size: 1.1em;
+  }
+  .hero {
+    height: 70vh;
+  }
+  .hero .hero-content {
+    padding: 30px;
+  }
+  .hero .hero-content h2 {
+    font-size: 2.5em;
+  }
+  .hero .hero-content p {
+    font-size: 1.3em;
+  }
+  section {
+    padding: 40px 15px;
+  }
+  section h2 {
+    font-size: 2.2em;
+  }
+  section p, section ul {
+    font-size: 1.1em;
+  }
+  .reception .menu-section h4 {
+    font-size: 1em;
+  }
+  .reception .menu-section ul {
+    font-size: 1em;
+  }
+  .faq h2 {
+    font-size: 1.8em;
+  }
+  .faq .faq-item {
+    padding: 10px;
+  }
+  .faq .faq-question {
+    font-size: 1.2em;
+  }
+  .faq .faq-answer {
+    font-size: 1em;
+  }
+}
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 2em;
+  }
+  header nav ul {
+    gap: 5px;
+  }
+  .hero .hero-content {
+    padding: 20px;
+  }
+  .hero .hero-content h2 {
+    font-size: 2em;
+  }
+  .hero .hero-content p {
+    font-size: 1.2em;
+  }
+  section {
+    padding: 30px 10px;
+  }
+  .reception h3 {
+    font-size: 1.5em;
+  }
+  .reception .menu-section h4 {
+    font-size: 0.9em;
+  }
+  .reception .menu-section ul {
+    font-size: 0.9em;
+  }
+  .faq h2 {
+    font-size: 1.6em;
+  }
+  .faq .faq-item {
+    padding: 8px;
+  }
+  .faq .faq-question {
+    font-size: 1.1em;
+  }
+  .faq .faq-answer {
+    font-size: 0.9em;
+  }
+}
+
+/*# sourceMappingURL=base.css.map */

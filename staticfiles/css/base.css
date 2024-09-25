@@ -1,0 +1,162 @@
+body {
+  font-family: "Georgia", serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #4a4a4a;
+}
+body header {
+  background: #c0a2b3;
+  color: white;
+  text-align: center;
+  padding: 50px 0;
+  position: relative;
+  overflow: hidden;
+}
+body header h1 {
+  font-size: 3em;
+  margin: 0;
+  animation: fadeIn 1s;
+}
+body header p {
+  font-size: 1.2em;
+  margin-top: 10px;
+  animation: fadeIn 1.5s;
+}
+body .hero {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  height: 80vh;
+  max-width: 100%;
+}
+body .hero .hero-image {
+  height: 100%;
+  width: 100%;
+}
+body .hero .hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+body .hero .hero-image:hover img {
+  transform: scale(1.1);
+}
+body .hero .hero-image .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+body .hero .hero-image .overlay h2 {
+  font-size: 3em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+body .hero .hero-image:hover .overlay {
+  opacity: 1;
+}
+body section {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  border-radius: 8px;
+  max-width: 800px;
+}
+body section h2 {
+  color: #c0a2b3;
+  animation: bounce 1s;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+body section p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+body section ul {
+  list-style-type: none;
+  padding: 0;
+  font-size: 1em;
+  text-align: left;
+}
+body section ul li {
+  margin: 5px 0;
+}
+body .rsvp button {
+  background-color: #c0a2b3;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.2s;
+}
+body .rsvp button:hover {
+  background-color: #ab849a;
+  transform: scale(1.05);
+}
+body footer {
+  text-align: center;
+  padding: 20px;
+  background: #f7e6e8;
+  font-size: 0.9em;
+  position: relative;
+}
+body footer p {
+  margin: 0;
+}
+body .faq-item {
+  margin: 20px 0;
+  text-align: left;
+}
+body .faq-item h3 {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+body .faq-item h3:hover {
+  color: #c0a2b3;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/*# sourceMappingURL=base.css.map */

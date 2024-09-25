@@ -1,0 +1,89 @@
+{% extends "layout1/base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ wedding_site.title }} - Wedding Celebration</title>
+    
+    <!-- Assuming you are pre-compiling SCSS to CSS -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    
+    <style>
+        :root {
+            --primary-color: {{ wedding_details.primary_color }};
+            --secondary-color: {{ wedding_details.secondary_color }};
+            --accent-color: {{ wedding_details.accent_color }};
+            --font-color: {{ wedding_details.font_color }};
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h2>{{ wedding_site.title }}</h2>
+            <p>{{ wedding_details.date }} | {{ wedding_details.ceremony_location }}</p>
+        </div>
+        <div class="hero-background">
+            <img src="{% static 'images/placeholder1.png' %}" alt="Wedding image">
+        </div>
+    </section>
+
+    <section id="details" class="details">
+        <h2>Wedding Details</h2>
+        <p>Date: {{ wedding_details.date }}</p>
+        <p>Ceremony: {{ wedding_details.ceremony }}</p>
+        <p>Reception: {{ wedding_details.reception }}</p>
+        <p>Time: {{ wedding_details.time }}</p>
+    </section>
+
+    <section id="reception" class="reception">
+        <h2>Reception</h2>
+        <p>{{ wedding_details.reception_description }}</p>  
+        <div class="menu-section">
+            <h4>Appetizer</h4>
+            <ul>
+                {% for starter in wedding_details.starters.all %}
+                    <li>{{ starter.description }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+  
+        <div class="menu-section">
+            <h4>Main Course</h4>
+            <ul>
+                {% for main in wedding_details.mains.all %}
+                    <li>{{ main.description }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+  
+        <div class="menu-section">
+            <h4>Dessert</h4>
+            <ul>
+                {% for dessert in wedding_details.desserts.all %}
+                    <li>{{ dessert.description }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+  
+    <section id="faq" class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-items">
+            {% for faq in wedding_site.faqs.all %}
+                <div class="faq-item">
+                    <h3 class="faq-question">{{ faq.question }}</h3>
+                    <p class="faq-answer">{{ faq.answer }}</p>
+                </div>
+            {% empty %}
+                <p>No FAQs available at this time.</p>
+            {% endfor %}
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

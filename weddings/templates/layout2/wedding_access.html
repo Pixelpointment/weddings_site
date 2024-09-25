@@ -1,0 +1,10 @@
+<h1>Enter Access Code for {{ wedding_site.title }}</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="access_code">Access Code:</label>
+    <input type="text" name="access_code" required>
+    <button type="submit">Submit</button>
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+</form>

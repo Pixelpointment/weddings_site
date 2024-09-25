@@ -1,0 +1,397 @@
+
+$font-stack: 'Georgia', serif;
+
+body {
+    margin: 0;
+    font-family: $font-stack;
+    background-color: var(--primary-color);
+    color: var(--font-color);
+}
+
+header {
+    background-color: var(--secondary-color);  // Navy background for header
+    color: white;
+    padding: 20px;
+    text-align: center;
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+
+            li {
+                a {
+                    color: white;
+                    text-decoration: none;
+                    font-size: 1.2em;
+                    transition: color 0.3s;
+
+                    &:hover {
+                        color: var(--accent-color);  // Light navy for hover effect
+                    }
+                }
+            }
+        }
+    }
+}
+
+.hero {
+    height: 90vh;
+    position: relative;
+
+    .hero-content {
+        position: relative;
+        z-index: 2;  // Content above the image
+        background: rgba(0, 0, 0, 0.5);  // Dark overlay
+        padding: 50px;
+        border-radius: 10px;
+        color: white;
+        text-align: center;
+
+        h2 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: var(--accent-color);  // Light navy for "Join Us As We Celebrate Our Love"
+        }
+
+        p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .btn {
+            background-color: var(--secondary-color);  // Navy button
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+
+            &:hover {
+                background-color: var(--btn-hover-colorr);  // Darkened navy on hover
+            }
+        }
+    }
+
+    .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+}
+
+section {
+    padding: 60px 20px;
+    text-align: center;
+
+    h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: var(--secondary-color);  // Navy headings
+    }
+
+    p, ul {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        color: var(--font-color);  // Dark font for body text
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            margin: 10px 0;
+        }
+    }
+}
+
+.rsvp .btn {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+
+    &:hover {
+        background-color: var(--btn-hover-colorr);  // Darker navy on hover
+    }
+}
+
+footer {
+    background-color: var(--secondary-color);  // Navy background for footer
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.reception {
+    background-color:var(--primary-color);  // Beige background
+    padding: 60px 20px;
+    text-align: center;
+
+    h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: var(--secondary-color);  // Navy
+    }
+
+    p {
+        font-size: 1.2em;
+        margin-bottom: 40px;
+        color: var(--font-color);
+    }
+
+    h3 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: var(--secondary-color);
+    }
+
+    .menu-section {
+        margin-bottom: 40px;
+
+        h4 {
+            font-size: 1em;
+            margin-bottom: 10px;
+            color: var(--secondary-color);  // Navy headings
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--accent-color);  // Light navy accent
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.2em;
+            color: var(--font-color);
+            line-height: 1.8em;
+
+            li {
+                margin: 10px 0;
+                padding: 10px;
+                border-bottom: 1px solid var(--accent-color);  // Light navy dividers
+                transition: background-color 0.3s;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                &:hover {
+                    background-color: white  // Light beige hover
+                }
+            }
+        }
+    }
+}
+
+.faq {
+    background-color: var(--primary-color);  // Beige background
+    padding: 40px 15px;
+    text-align: center;
+
+    h2 {
+        font-size: 2em;  // Slightly smaller headings
+        margin-bottom: 30px;
+        color: var(--secondary-color);  // Navy
+    }
+
+    .faq-items {
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: left;
+
+        .faq-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: white;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .faq-question {
+                font-size: 1.3em;
+                color: var(--secondary-color);  // Navy for FAQ questions
+                margin-bottom: 8px;
+            }
+
+            .faq-answer {
+                font-size: 1.1em;
+                color: var(--font-color);  // Dark font color
+                line-height: 1.4em;
+            }
+        }
+    }
+}
+
+// Media Queries for Responsiveness
+@media (max-width: 768px) {
+    header {
+        padding: 15px;
+        
+        .navbar {
+            flex-direction: row; // Stack items vertically
+            align-items: center;
+            display: inline-table;
+
+            nav ul {
+                flex-direction: row; // Stack navigation items
+                gap: 10px;
+
+                li {
+                    a {
+                        font-size: 1.1em; // Slightly smaller font size
+                    }
+                }
+            }
+        }
+    }
+
+    .hero {
+        height: 70vh; // Reduce height for smaller screens
+
+        .hero-content {
+            padding: 30px; // Reduce padding
+            h2 {
+                font-size: 2.5em; // Smaller title size
+            }
+            p {
+                font-size: 1.3em; // Smaller subtitle size
+            }
+        }
+    }
+
+    section {
+        padding: 40px 15px; // Reduce section padding
+
+        h2 {
+            font-size: 2.2em; // Smaller section title
+        }
+
+        p, ul {
+            font-size: 1.1em; // Slightly smaller font for body text
+        }
+    }
+
+    .reception {
+        .menu-section {
+            h4 {
+                font-size: 1em; // Smaller menu section title
+            }
+
+            ul {
+                font-size: 1em; // Smaller font for menu items
+            }
+        }
+    }
+
+    .faq {
+        h2 {
+            font-size: 1.8em; // Smaller FAQ title
+        }
+
+        .faq-item {
+            padding: 10px; // Reduce padding
+        }
+
+        .faq-question {
+            font-size: 1.2em; // Smaller question size
+        }
+
+        .faq-answer {
+            font-size: 1em; // Smaller answer size
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        h1 {
+            font-size: 2em; // Further reduce title size for mobile
+        }
+
+        nav ul {
+            gap: 5px; // Smaller gap between navigation items
+        }
+    }
+
+    .hero {
+        .hero-content {
+            padding: 20px; // Further reduce padding
+            h2 {
+                font-size: 2em; // Even smaller title for mobile
+            }
+            p {
+                font-size: 1.2em; // Smaller subtitle
+            }
+        }
+    }
+
+    section {
+        padding: 30px 10px; // Even less padding
+    }
+
+    .reception {
+        h3 {
+            font-size: 1.5em; // Smaller main course title
+        }
+
+        .menu-section {
+            h4 {
+                font-size: 0.9em; // Smaller menu section title
+            }
+
+            ul {
+                font-size: 0.9em; // Smaller font for menu items
+            }
+        }
+    }
+
+    .faq {
+        h2 {
+            font-size: 1.6em; // Smaller FAQ title
+        }
+
+        .faq-item {
+            padding: 8px; // Reduce padding
+        }
+
+        .faq-question {
+            font-size: 1.1em; // Smaller question size
+        }
+
+        .faq-answer {
+            font-size: 0.9em; // Smaller answer size
+        }
+    }
+}
