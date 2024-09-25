@@ -1,14 +1,14 @@
-{% extends "base.html" %}
+{% extends "layout1/base.html" %}
+{% load static %}
 
 {% block content %}
 <div class="guest-upload-page">
     <h2>Upload Your Photos</h2>
-    <form method="post" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="file" name="photo" required>
-        <textarea name="message" placeholder="Add a message (optional)"></textarea>
-        <button type="submit">Upload</button>
-    </form>
+        {{ form.as_p }}
+        <button type="submit" class="btn">Upload Photo</button>
+    </form>    
 </div>
 {% endblock %}
 

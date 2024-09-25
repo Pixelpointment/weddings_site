@@ -7,17 +7,29 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        :root {
+            --primary-color: {{ colours.primary_color|default:'#ffffff' }};
+            --secondary-color: {{ colours.secondary_color|default:'#000000' }};
+            --accent-color: {{ colours.accent_color|default:'#ff0000' }};
+            --font-color: {{ colours.font_color|default:'#333333' }};
+            --btn-hover-color: {{ colours.btn_hover_color|default:'#888888' }};
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="navbar">
-            <h1>Our Wedding</h1>
+            <h1>{{ wedding_site.title }}</h1>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#details">Details</a></li>
-                    <li><a href="#reception">Reception</a></li>
-                    <li><a href="#faq">FAQs</a></li>
+                    <li><a href="{% url 'wedding_home' wedding_site.unique_name %}">Home</a></li>
+                    <li><a href="{% url 'wedding_home' wedding_site.unique_name %}#details">Details</a></li>
+                    <li><a href="{% url 'wedding_home' wedding_site.unique_name %}#reception">Reception</a></li>
+                    <li><a href="{% url 'wedding_home' wedding_site.unique_name %}#faq">FAQs</a></li>
+                    <li><a href="{% url 'guest_photo_upload' wedding_site.unique_name %}">Upload Photo</a></li> 
+                    <li><a href="{% url 'gallery' wedding_site.unique_name %}">Gallery</a></li>
+
                 </ul>
             </nav>
         </div>
@@ -26,7 +38,6 @@
     <main>
         <div class="content">
             {% block content %}
-            <!-- Page-specific content goes here -->
             {% endblock %}
         </div>
     </main>
@@ -40,4 +51,3 @@
     <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>
-

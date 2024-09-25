@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +22,7 @@ SECRET_KEY = 'django-insecure-oa=hv54a7++93t#(t$5$a^9%1@@41j=#j7^mt_0^$7bp@v^k#(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []  # Update this in production with allowed hosts
 
 # Application definition
 INSTALLED_APPS = [
@@ -50,7 +51,7 @@ ROOT_URLCONF = 'wedding_manager.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],  # Add this line if you have custom templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -104,7 +105,12 @@ STATICFILES_DIRS = [
 
 # Media files (Uploaded by users)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+# Sass Processor Configuration
+SASS_PROCESSOR_ROOT = BASE_DIR / 'static'  # Root directory for Sass files
+SASS_PROCESSOR_INCLUDE_DIRS = [BASE_DIR / 'static/sass']  # Directory containing Sass files
+SASS_OUTPUT_STYLE = 'compressed'  # Output style for compiled CSS
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

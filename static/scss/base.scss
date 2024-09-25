@@ -1,15 +1,19 @@
-
 $font-stack: 'Georgia', serif;
+$primary-color: var(--primary-color);
+$secondary-color: var(--secondary-color);
+$accent-color: var(--accent-color);
+$font-color: var(--font-color);
+$btn-hover-color: var(--btn-hover-color); // Ensure this variable is set
 
 body {
     margin: 0;
     font-family: $font-stack;
-    background-color: var(--primary-color);
-    color: var(--font-color);
+    background-color: $primary-color;
+    color: $font-color;
 }
 
 header {
-    background-color: var(--secondary-color);  // Navy background for header
+    background-color: $secondary-color;  // Navy background for header
     color: white;
     padding: 20px;
     text-align: center;
@@ -37,7 +41,7 @@ header {
                     transition: color 0.3s;
 
                     &:hover {
-                        color: var(--accent-color);  // Light navy for hover effect
+                        color: $accent-color;  // Light navy for hover effect
                     }
                 }
             }
@@ -61,7 +65,7 @@ header {
         h2 {
             font-size: 3em;
             margin-bottom: 10px;
-            color: var(--accent-color);  // Light navy for "Join Us As We Celebrate Our Love"
+            color: $accent-color;  // Light navy for "Join Us As We Celebrate Our Love"
         }
 
         p {
@@ -71,7 +75,7 @@ header {
         }
 
         .btn {
-            background-color: var(--secondary-color);  // Navy button
+            background-color: $secondary-color;  // Navy button
             color: white;
             padding: 15px 30px;
             font-size: 1.2em;
@@ -81,7 +85,7 @@ header {
             transition: background 0.3s ease;
 
             &:hover {
-                background-color: var(--btn-hover-colorr);  // Darkened navy on hover
+                background-color: $btn-hover-color;  // Use the correct variable
             }
         }
     }
@@ -110,13 +114,13 @@ section {
     h2 {
         font-size: 2.5em;
         margin-bottom: 20px;
-        color: var(--secondary-color);  // Navy headings
+        color: $secondary-color;  // Navy headings
     }
 
     p, ul {
         font-size: 1.2em;
         margin-bottom: 20px;
-        color: var(--font-color);  // Dark font for body text
+        color: $font-color;  // Dark font for body text
     }
 
     ul {
@@ -130,7 +134,7 @@ section {
 }
 
 .rsvp .btn {
-    background-color: var(--secondary-color);
+    background-color: $secondary-color;
     color: white;
     padding: 15px 30px;
     font-size: 1.2em;
@@ -138,38 +142,38 @@ section {
     transition: background 0.3s ease;
 
     &:hover {
-        background-color: var(--btn-hover-colorr);  // Darker navy on hover
+        background-color: $btn-hover-color;  // Use the correct variable
     }
 }
 
 footer {
-    background-color: var(--secondary-color);  // Navy background for footer
+    background-color: $secondary-color;  // Navy background for footer
     color: white;
     padding: 20px;
     text-align: center;
 }
 
 .reception {
-    background-color:var(--primary-color);  // Beige background
+    background-color: $primary-color;  // Beige background
     padding: 60px 20px;
     text-align: center;
 
     h2 {
         font-size: 2.5em;
         margin-bottom: 20px;
-        color: var(--secondary-color);  // Navy
+        color: $secondary-color;  // Navy
     }
 
     p {
         font-size: 1.2em;
         margin-bottom: 40px;
-        color: var(--font-color);
+        color: $font-color;
     }
 
     h3 {
         font-size: 2em;
         margin-bottom: 20px;
-        color: var(--secondary-color);
+        color: $secondary-color;
     }
 
     .menu-section {
@@ -178,10 +182,10 @@ footer {
         h4 {
             font-size: 1em;
             margin-bottom: 10px;
-            color: var(--secondary-color);  // Navy headings
+            color: $secondary-color;  // Navy headings
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-bottom: 2px solid var(--accent-color);  // Light navy accent
+            border-bottom: 2px solid $accent-color;  // Light navy accent
             display: inline-block;
             padding-bottom: 5px;
         }
@@ -190,13 +194,13 @@ footer {
             list-style: none;
             padding: 0;
             font-size: 1.2em;
-            color: var(--font-color);
+            color: $font-color;
             line-height: 1.8em;
 
             li {
                 margin: 10px 0;
                 padding: 10px;
-                border-bottom: 1px solid var(--accent-color);  // Light navy dividers
+                border-bottom: 1px solid $accent-color;  // Light navy dividers
                 transition: background-color 0.3s;
 
                 &:last-child {
@@ -204,7 +208,7 @@ footer {
                 }
 
                 &:hover {
-                    background-color: white  // Light beige hover
+                    background-color: $btn-hover-color;;  // Light beige hover
                 }
             }
         }
@@ -212,186 +216,45 @@ footer {
 }
 
 .faq {
-    background-color: var(--primary-color);  // Beige background
-    padding: 40px 15px;
+    background-color: $primary-color;  // Beige background
+    padding: 60px 20px;
     text-align: center;
 
     h2 {
-        font-size: 2em;  // Slightly smaller headings
-        margin-bottom: 30px;
-        color: var(--secondary-color);  // Navy
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: $secondary-color;  // Navy
     }
 
     .faq-items {
-        max-width: 700px;
-        margin: 0 auto;
-        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 800px;
+        margin: auto;
 
         .faq-item {
-            margin-bottom: 20px;
-            padding: 15px;
+            background-color: white;  // White background for FAQ items
             border-radius: 5px;
-            background-color: white;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease-in-out;
-
-            &:hover {
-                box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
-            }
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
             .faq-question {
-                font-size: 1.3em;
-                color: var(--secondary-color);  // Navy for FAQ questions
-                margin-bottom: 8px;
+                font-weight: bold;
+                color: $secondary-color;  // Navy question
+                cursor: pointer;
+
+                &:hover {
+                    color: $accent-color;  // Light navy on hover
+                }
             }
 
             .faq-answer {
-                font-size: 1.1em;
-                color: var(--font-color);  // Dark font color
-                line-height: 1.4em;
+                display: none;  // Initially hide the answer
+                margin-top: 10px;
+                color: $font-color;  // Dark font for answer
             }
-        }
-    }
-}
-
-// Media Queries for Responsiveness
-@media (max-width: 768px) {
-    header {
-        padding: 15px;
-        
-        .navbar {
-            flex-direction: row; // Stack items vertically
-            align-items: center;
-            display: inline-table;
-
-            nav ul {
-                flex-direction: row; // Stack navigation items
-                gap: 10px;
-
-                li {
-                    a {
-                        font-size: 1.1em; // Slightly smaller font size
-                    }
-                }
-            }
-        }
-    }
-
-    .hero {
-        height: 70vh; // Reduce height for smaller screens
-
-        .hero-content {
-            padding: 30px; // Reduce padding
-            h2 {
-                font-size: 2.5em; // Smaller title size
-            }
-            p {
-                font-size: 1.3em; // Smaller subtitle size
-            }
-        }
-    }
-
-    section {
-        padding: 40px 15px; // Reduce section padding
-
-        h2 {
-            font-size: 2.2em; // Smaller section title
-        }
-
-        p, ul {
-            font-size: 1.1em; // Slightly smaller font for body text
-        }
-    }
-
-    .reception {
-        .menu-section {
-            h4 {
-                font-size: 1em; // Smaller menu section title
-            }
-
-            ul {
-                font-size: 1em; // Smaller font for menu items
-            }
-        }
-    }
-
-    .faq {
-        h2 {
-            font-size: 1.8em; // Smaller FAQ title
-        }
-
-        .faq-item {
-            padding: 10px; // Reduce padding
-        }
-
-        .faq-question {
-            font-size: 1.2em; // Smaller question size
-        }
-
-        .faq-answer {
-            font-size: 1em; // Smaller answer size
-        }
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        h1 {
-            font-size: 2em; // Further reduce title size for mobile
-        }
-
-        nav ul {
-            gap: 5px; // Smaller gap between navigation items
-        }
-    }
-
-    .hero {
-        .hero-content {
-            padding: 20px; // Further reduce padding
-            h2 {
-                font-size: 2em; // Even smaller title for mobile
-            }
-            p {
-                font-size: 1.2em; // Smaller subtitle
-            }
-        }
-    }
-
-    section {
-        padding: 30px 10px; // Even less padding
-    }
-
-    .reception {
-        h3 {
-            font-size: 1.5em; // Smaller main course title
-        }
-
-        .menu-section {
-            h4 {
-                font-size: 0.9em; // Smaller menu section title
-            }
-
-            ul {
-                font-size: 0.9em; // Smaller font for menu items
-            }
-        }
-    }
-
-    .faq {
-        h2 {
-            font-size: 1.6em; // Smaller FAQ title
-        }
-
-        .faq-item {
-            padding: 8px; // Reduce padding
-        }
-
-        .faq-question {
-            font-size: 1.1em; // Smaller question size
-        }
-
-        .faq-answer {
-            font-size: 0.9em; // Smaller answer size
         }
     }
 }

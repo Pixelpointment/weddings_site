@@ -11,6 +11,7 @@ from .models import (
     Dessert,
     Colours,  # Add Colours model to imports
 )
+from .forms import ColoursForm  # Import the form for colors
 
 # Inline classes for Starters, Mains, Desserts, and Colours
 class StarterInline(admin.TabularInline):
@@ -35,6 +36,7 @@ class DessertInline(admin.TabularInline):
 class ColoursInline(admin.TabularInline):
     model = Colours
     extra = 1
+    form = ColoursForm  # Use the color form here
     verbose_name = "Colour Scheme"
     verbose_name_plural = "Colour Schemes"
 
@@ -42,7 +44,7 @@ class ColoursInline(admin.TabularInline):
 class Layout1WeddingDetailsInline(admin.TabularInline):
     model = Layout1WeddingDetails
     extra = 1
-    fields = ('date', 'ceremony', 'reception', 'time', 'reception_description')
+    fields = ('date', 'ceremony', 'reception', 'time', 'reception_description', 'hero_image')
 
 # Inline classes for Photos and FAQs
 class PhotoInline(admin.TabularInline):
@@ -81,16 +83,21 @@ class PhotoAdmin(admin.ModelAdmin):
 class FAQAdmin(admin.ModelAdmin):
     list_display = ('wedding_site', 'question', 'answer')
 
-@admin.register(GuestPhoto)
-class GuestPhotoAdmin(admin.ModelAdmin):
-    list_display = ('wedding_site', 'uploaded_at', 'approved')
-    list_filter = ('approved', 'wedding_site')
-    actions = ['approve_photos']
+# Custom action to approve selected photos
+@admin.action(description='Approve selected photos')
+def approve_photos(modeladmin, request, queryset):
+    queryset.update(approved=True)
 
-    def approve_photos(self, request, queryset):
-        queryset.update(approved=True)
-        self.message_user(request, "Selected photos have been approved.")
-    approve_photos.short_description = "Approve selected photos"
+class GuestPhotoAdmin(admin.ModelAdmin):
+    list_display = ('uploader_name', 'wedding_site', 'uploaded_at', 'approved')
+    list_filter = ('approved', 'wedding_site')
+    search_fields = ('uploader_name', 'description')
+    actions = [approve_photos]  # Add the custom action to approve photos
+    readonly_fields = ('uploaded_at',)
+    list_editable = ('approved',)  # Allow approval directly in the list view
+
+# Register models in the admin
+admin.site.register(GuestPhoto, GuestPhotoAdmin)
 
 @admin.register(Starter)
 class StarterAdmin(admin.ModelAdmin):
@@ -108,3 +115,4 @@ class DessertAdmin(admin.ModelAdmin):
 @admin.register(Colours)
 class ColoursAdmin(admin.ModelAdmin):
     list_display = ('wedding_details', 'primary_color', 'secondary_color', 'accent_color', 'font_color', 'btn_hover_color')
+    form = ColoursForm  # Use the color form for this admin

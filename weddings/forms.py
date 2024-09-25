@@ -1,11 +1,23 @@
 from django import forms
-from .models import GuestPhoto
+from .models import GuestPhoto, Colours
 
 class GuestPhotoForm(forms.ModelForm):
     class Meta:
         model = GuestPhoto
-        fields = ['photo', 'message']
+        fields = ['uploader_name', 'photo', 'description']
         widgets = {
-            'message': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Optional message...'}),
+            'uploader_name': forms.TextInput(attrs={'placeholder': 'Your Name'}),
+            'description': forms.Textarea(attrs={'placeholder': 'Optional description'}),
         }
 
+class ColoursForm(forms.ModelForm):
+    class Meta:
+        model = Colours
+        fields = ['primary_color', 'secondary_color', 'accent_color', 'font_color', 'btn_hover_color']
+        widgets = {
+            'primary_color': forms.TextInput(attrs={'type': 'color'}),
+            'secondary_color': forms.TextInput(attrs={'type': 'color'}),
+            'accent_color': forms.TextInput(attrs={'type': 'color'}),
+            'font_color': forms.TextInput(attrs={'type': 'color'}),
+            'btn_hover_color': forms.TextInput(attrs={'type': 'color'}),
+        }

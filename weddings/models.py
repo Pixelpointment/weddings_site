@@ -26,9 +26,10 @@ class Layout(models.Model):
 class WeddingSite(models.Model):
     unique_name = models.SlugField(unique=True)
     title = models.CharField(max_length=100)
-    access_code = models.CharField(max_length=100)
+    access_code = models.CharField(max_length=100, blank=True, null=True)  # Access code is now optional
     layout = models.ForeignKey('Layout', on_delete=models.SET_NULL, null=True, blank=True)
     description = models.TextField(blank=True, null=True)
+    photos_need_approval = models.BooleanField(default=True)  # New field to control approval setting
 
     def __str__(self):
         return self.title
@@ -41,13 +42,13 @@ class Layout1WeddingDetails(models.Model):
     reception = models.TextField(blank=True, null=True)
     time = models.TimeField()
     reception_description = models.TextField()
+    hero_image = models.ImageField(upload_to='wedding_hero_images/', blank=True, null=True) 
 
     def __str__(self):
         return f"Wedding details for {self.wedding_site.title}"
 
     class Meta:
         ordering = ['date']
-
 
 class Colours(models.Model):
     wedding_details = models.ForeignKey(Layout1WeddingDetails, related_name='colours', on_delete=models.CASCADE)
@@ -103,12 +104,14 @@ class FAQ(models.Model):
         return f"FAQ for {self.wedding_site.title}: {self.question}"
 
 
+
 class GuestPhoto(models.Model):
     wedding_site = models.ForeignKey(WeddingSite, related_name='guest_photos', on_delete=models.CASCADE)
+    uploader_name = models.CharField(max_length=255)  # Name of the guest who uploaded the photo
     photo = models.ImageField(upload_to='guest_photos/')
-    message = models.TextField(blank=True)
+    description = models.TextField(blank=True, null=True)  # Optional description
     uploaded_at = models.DateTimeField(auto_now_add=True)
-    approved = models.BooleanField(default=False)
+    approved = models.BooleanField(default=False)  # Admin approval status
 
     def __str__(self):
-        return f"Guest Photo for {self.wedding_site.title} uploaded on {self.uploaded_at}"
+        return f"{self.uploader_name}'s photo for {self.wedding_site.title}"

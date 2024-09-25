@@ -1,10 +1,23 @@
-<h1>Enter Access Code for {{ wedding_site.title }}</h1>
-<form method="POST">
-    {% csrf_token %}
-    <label for="access_code">Access Code poo:</label>
-    <input type="text" name="access_code" required>
-    <button type="submit">Submit</button>
-    {% if error %}
-        <p style="color:red;">{{ error }}</p>
-    {% endif %}
-</form>
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="access-container">
+        <h2>Access the Wedding Site</h2>
+        
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if wedding_site.access_code %}
+            <form method="post">
+                {% csrf_token %}
+                <label for="access_code">Enter Access Code:</label>
+                <input type="text" id="access_code" name="access_code" required>
+                <button type="submit">Submit</button>
+            </form>
+        {% else %}
+            <p>No access code is required. <a href="{% url 'wedding_home' wedding_site.unique_name %}">Click here to enter</a>.</p>
+        {% endif %}
+    </div>
+{% endblock %}
+

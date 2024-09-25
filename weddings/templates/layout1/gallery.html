@@ -1,0 +1,19 @@
+{% extends "layout1/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="photo-gallery">
+    <h2>Guest Photos</h2>
+    <div class="photos-grid">
+        {% for photo in photos %}
+        <div class="photo-card">
+            <img src="{{ photo.photo.url }}" alt="Guest Photo">
+            <p><strong>{{ photo.uploader_name }}</strong></p>
+            {% if photo.description %}
+            <p>{{ photo.description }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
