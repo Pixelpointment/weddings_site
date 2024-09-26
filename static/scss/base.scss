@@ -234,7 +234,7 @@ footer {
         margin: auto;
 
         .faq-item {
-            background-color: white;  // White background for FAQ items
+            background-color: var(--secondary-color);  // White background for FAQ items
             border-radius: 5px;
             padding: 20px;
             margin-bottom: 20px;
@@ -242,7 +242,7 @@ footer {
 
             .faq-question {
                 font-weight: bold;
-                color: $secondary-color;  // Navy question
+                color: white;  // Navy question
                 cursor: pointer;
 
                 &:hover {
@@ -251,10 +251,62 @@ footer {
             }
 
             .faq-answer {
-                display: none;  // Initially hide the answer
                 margin-top: 10px;
-                color: $font-color;  // Dark font for answer
+                color: white;  // Dark font for answer
             }
         }
     }
 }
+
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.3s;
+}
+
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Show hamburger on mobile */
+    }
+
+    nav {
+        display: none; /* Hide navigation by default */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--secondary-color);
+        position: absolute;
+        top: 60px; /* Adjust according to your header height */
+        left: 0;
+        z-index: 10;
+    }
+
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    nav ul li {
+        text-align: center;
+        width: 100%;
+    }
+
+    nav.active {
+        display: flex; /* Show navigation when active */
+    }
+}
+
+/* Other existing styles for hero, sections, footer, etc. */

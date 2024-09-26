@@ -177,7 +177,7 @@ footer {
   border-bottom: none;
 }
 .reception .menu-section ul li:hover {
-  background-color: white;
+  background-color: var(--btn-hover-color);
 }
 
 .faq {
@@ -198,7 +198,7 @@ footer {
   margin: auto;
 }
 .faq .faq-items .faq-item {
-  background-color: white;
+  background-color: var(--secondary-color);
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 20px;
@@ -206,16 +206,60 @@ footer {
 }
 .faq .faq-items .faq-item .faq-question {
   font-weight: bold;
-  color: var(--secondary-color);
+  color: white;
   cursor: pointer;
 }
 .faq .faq-items .faq-item .faq-question:hover {
   color: var(--accent-color);
 }
 .faq .faq-items .faq-item .faq-answer {
-  display: none;
   margin-top: 10px;
-  color: var(--font-color);
+  color: white;
 }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex; /* Show hamburger on mobile */
+  }
+  nav {
+    display: none; /* Hide navigation by default */
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--secondary-color);
+    position: absolute;
+    top: 60px; /* Adjust according to your header height */
+    left: 0;
+    z-index: 10;
+  }
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  nav ul li {
+    text-align: center;
+    width: 100%;
+  }
+  nav.active {
+    display: flex; /* Show navigation when active */
+  }
+}
+/* Other existing styles for hero, sections, footer, etc. */
 
 /*# sourceMappingURL=base.css.map */

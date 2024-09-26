@@ -16,12 +16,16 @@
             --btn-hover-color: {{ colours.btn_hover_color|default:'#888888' }};
         }
     </style>
-</head>
 <body>
     <header>
         <div class="navbar">
             <h1>{{ wedding_site.title }}</h1>
-            <nav>
+            <div class="hamburger" id="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <nav id="nav">
                 <ul>
                     <li><a href="{% url 'wedding_home' wedding_site.unique_name %}">Home</a></li>
                     <li><a href="{% url 'wedding_home' wedding_site.unique_name %}#details">Details</a></li>
@@ -29,7 +33,6 @@
                     <li><a href="{% url 'wedding_home' wedding_site.unique_name %}#faq">FAQs</a></li>
                     <li><a href="{% url 'guest_photo_upload' wedding_site.unique_name %}">Upload Photo</a></li> 
                     <li><a href="{% url 'gallery' wedding_site.unique_name %}">Gallery</a></li>
-
                 </ul>
             </nav>
         </div>

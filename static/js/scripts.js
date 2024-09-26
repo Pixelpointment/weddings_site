@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    $('#hamburger').click(function() {
+        $('#nav').toggleClass('active');
+    });
+    
     $('#menu-toggle').on('click', function() {
         $('#side-menu').css('left', '0'); // Slide in
     });
@@ -89,3 +93,4 @@ $(document).ready(function () {
   // Start the slideshow
   showSlides();
 });
+
